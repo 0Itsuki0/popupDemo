@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PopupDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIj-rx-BGX">
+                                <rect key="frame" x="20" y="109" width="160" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Show Popup Alert" cornerStyle="medium">
+                                    <backgroundConfiguration key="background">
+                                        <color key="strokeColor" name="AccentColor"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="onShowPopupAlertButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jT8-ss-NLo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWP-tI-Gdm">
+                                <rect key="frame" x="20" y="174" width="205" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Show Navigation Popup" cornerStyle="medium">
+                                    <backgroundConfiguration key="background">
+                                        <color key="strokeColor" name="AccentColor"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="onShowPopupWithNavigationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iYn-ow-NIy"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qcz-sD-DF1" userLabel="popup container">
+                                <rect key="frame" x="20" y="251" width="353" height="350"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="350" id="tKn-Nb-4Vn"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qcz-sD-DF1" secondAttribute="trailing" constant="20" id="2KI-CY-7V6"/>
+                            <constraint firstItem="Qcz-sD-DF1" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="B5E-fx-XzC"/>
+                            <constraint firstItem="ZIj-rx-BGX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="QJg-ZU-QIB"/>
+                            <constraint firstItem="VWP-tI-Gdm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="TwL-8N-hIL"/>
+                            <constraint firstItem="VWP-tI-Gdm" firstAttribute="top" secondItem="ZIj-rx-BGX" secondAttribute="bottom" constant="30" id="VIR-0m-AGp"/>
+                            <constraint firstItem="Qcz-sD-DF1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="pft-uB-xic"/>
+                            <constraint firstItem="ZIj-rx-BGX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="soN-0Q-7Ui"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="popupContainerView" destination="Qcz-sD-DF1" id="Moh-kc-vDD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="35" y="-2"/>
+        </scene>
+        <!--Main Popup View Controller-->
+        <scene sceneID="YTS-e3-gEV">
+            <objects>
+                <viewController storyboardIdentifier="MainPopupViewController" modalPresentationStyle="formSheet" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qBN-gP-gCN" customClass="MainPopupViewController" customModule="PopupDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e29-jp-aes">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="400"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9L2-5Q-qfq">
+                                <rect key="frame" x="151" y="182.66666666666666" width="91" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="To Detail" cornerStyle="medium">
+                                    <backgroundConfiguration key="background">
+                                        <color key="strokeColor" name="AccentColor"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="onShowPopupAlertButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AqP-6R-np0"/>
+                                    <action selector="onToDetailPressed:" destination="qBN-gP-gCN" eventType="touchUpInside" id="JBg-xe-wj6"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SuB-wY-DrU">
+                                <rect key="frame" x="177.66666666666666" y="50" width="38" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yc-VQ-Dhm" userLabel="Close Button">
+                                <rect key="frame" x="353" y="10" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="BeC-OA-RdI"/>
+                                    <constraint firstAttribute="width" constant="30" id="hnH-Ks-BH9"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="xmark.circle" catalog="system"/>
+                                <connections>
+                                    <action selector="onCloseButtonPressed:" destination="qBN-gP-gCN" eventType="touchUpInside" id="8D4-Ms-6Aj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UrW-rE-nde"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="SuB-wY-DrU" firstAttribute="centerX" secondItem="e29-jp-aes" secondAttribute="centerX" id="7N5-al-JXA"/>
+                            <constraint firstItem="4yc-VQ-Dhm" firstAttribute="top" secondItem="UrW-rE-nde" secondAttribute="top" constant="10" id="Cy6-qx-Cgv"/>
+                            <constraint firstItem="9L2-5Q-qfq" firstAttribute="centerX" secondItem="e29-jp-aes" secondAttribute="centerX" id="Ft2-g2-ke7"/>
+                            <constraint firstItem="UrW-rE-nde" firstAttribute="trailing" secondItem="4yc-VQ-Dhm" secondAttribute="trailing" constant="10" id="IML-Cd-0LS"/>
+                            <constraint firstItem="SuB-wY-DrU" firstAttribute="top" secondItem="UrW-rE-nde" secondAttribute="top" constant="50" id="cLr-HW-2Va"/>
+                            <constraint firstItem="9L2-5Q-qfq" firstAttribute="centerY" secondItem="e29-jp-aes" secondAttribute="centerY" id="yg8-H4-817"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="XSy-8h-1QB"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="393" height="400"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="393" height="400"/>
+                    <connections>
+                        <outlet property="titleLabel" destination="SuB-wY-DrU" id="9E8-cq-xbR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wvi-dP-KeF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="876" y="606"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="W69-Wg-OB7">
+            <objects>
+                <navigationController storyboardIdentifier="PopupNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="7hU-Ep-DhG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <size key="freeformSize" width="393" height="400"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vxb-V7-hMF">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qBN-gP-gCN" kind="relationship" relationship="rootViewController" id="UTJ-2w-dAL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JSo-gw-2WM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="33" y="606"/>
+        </scene>
+        <!--Detail Popup View Controller-->
+        <scene sceneID="RAT-9k-JHJ">
+            <objects>
+                <viewController storyboardIdentifier="DetailPopupViewController" modalPresentationStyle="formSheet" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pml-Qt-dOR" customClass="DetailPopupViewController" customModule="PopupDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cCL-Tu-Hh4">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="400"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXt-q7-KaT">
+                                <rect key="frame" x="135" y="182.66666666666666" width="123" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="059-bp-0tx"/>
+                                    <constraint firstAttribute="width" constant="123" id="shh-Oc-abI"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Back to Main" cornerStyle="medium">
+                                    <backgroundConfiguration key="background">
+                                        <color key="strokeColor" name="AccentColor"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="onBackToMainPressed:" destination="pml-Qt-dOR" eventType="touchUpInside" id="4AF-on-XAw"/>
+                                    <action selector="onShowPopupAlertButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x33-vo-3xE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xnc-BE-Blk" userLabel="Close Button">
+                                <rect key="frame" x="353" y="10" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="Cyp-qG-7cK"/>
+                                    <constraint firstAttribute="height" constant="30" id="Jhh-y2-zAf"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="xmark.circle" catalog="system"/>
+                                <connections>
+                                    <action selector="onCloseButtonPressed:" destination="pml-Qt-dOR" eventType="touchUpInside" id="oQ2-Sm-Lrk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NqS-m6-EA0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="NqS-m6-EA0" firstAttribute="trailing" secondItem="Xnc-BE-Blk" secondAttribute="trailing" constant="10" id="QfW-OR-6QA"/>
+                            <constraint firstItem="iXt-q7-KaT" firstAttribute="centerY" secondItem="cCL-Tu-Hh4" secondAttribute="centerY" id="alR-g3-RiU"/>
+                            <constraint firstItem="Xnc-BE-Blk" firstAttribute="top" secondItem="NqS-m6-EA0" secondAttribute="top" constant="10" id="mGh-XO-xRi"/>
+                            <constraint firstItem="iXt-q7-KaT" firstAttribute="centerX" secondItem="cCL-Tu-Hh4" secondAttribute="centerX" id="rf7-XM-pQq"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="AVR-C7-r96" appends="YES" id="jXD-Dy-Gne"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="nXD-0B-PnX"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="393" height="400"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="393" height="400"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mYi-1p-XPu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="AVR-C7-r96">
+                    <connections>
+                        <action selector="onSwipeGestureRecognized:" destination="pml-Qt-dOR" id="hD8-xo-Okr"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1660" y="606"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="xmark.circle" catalog="system" width="128" height="123"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
